@@ -1,14 +1,15 @@
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import {
   LayoutDashboard, ClipboardList, PlusCircle, Search,
-  Headphones, ChevronRight
+  Headphones, ChevronRight, BarChart2
 } from 'lucide-react'
 
 const navItems = [
-  { to: '/',             icon: LayoutDashboard, label: 'Dashboard' },
-  { to: '/tickets',      icon: ClipboardList,         label: 'All Tickets' },
-  { to: '/tickets/new',  icon: PlusCircle,      label: 'New Ticket' },
-  { to: '/search',       icon: Search,          label: 'Search' },
+  { to: '/',             icon: LayoutDashboard, label: 'Dashboard'   },
+  { to: '/tickets',      icon: ClipboardList,   label: 'All Tickets' },
+  { to: '/tickets/new',  icon: PlusCircle,      label: 'New Ticket'  },
+  { to: '/search',       icon: Search,          label: 'Search'      },
+  { to: '/analytics',    icon: BarChart2,        label: 'Analytics'   },
 ]
 
 export default function Sidebar() {

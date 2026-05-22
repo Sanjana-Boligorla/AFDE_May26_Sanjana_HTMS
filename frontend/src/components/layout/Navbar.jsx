@@ -12,6 +12,7 @@ export default function Navbar() {
   else if (pathname === '/tickets/new'){ title = 'New Ticket';  sub = 'Submit a new support request' }
   else if (isDetail)                  { title = 'Ticket Detail'; sub = `Viewing ticket #${isDetail.params.id}` }
   else if (pathname === '/search')    { title = 'Search';       sub = 'Search across all tickets' }
+  else if (pathname === '/analytics') { title = 'Analytics';    sub = 'Historical ticket data insights' }
   else                                { title = 'Helpdesk';     sub = '' }
 
   return (

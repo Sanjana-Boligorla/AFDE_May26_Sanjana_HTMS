@@ -20,3 +20,11 @@ export const addComment    = (ticketId, data)        => API.post(`/api/tickets/$
 export const deleteComment = (ticketId, commentId)   => API.delete(`/api/tickets/${ticketId}/comments/${commentId}`)
 
 export default API
+
+// ── Analytics (Phase 2) ───────────────────────────────────────────────────────
+export const getAnalyticsOverview    = () => API.get('/api/analytics/overview')
+export const getCategorySummary      = () => API.get('/api/analytics/category-summary')
+export const getPriorityDistribution = () => API.get('/api/analytics/priority-distribution')
+export const getDeptSummary          = () => API.get('/api/analytics/department-summary')
+export const getResolutionTrends     = () => API.get('/api/analytics/resolution-trends')
+export const getMonthlyVolume        = () => API.get('/api/analytics/monthly-volume')
