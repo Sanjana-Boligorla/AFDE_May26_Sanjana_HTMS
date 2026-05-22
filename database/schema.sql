@@ -78,3 +78,33 @@ INSERT INTO ticket_comments (ticket_id, author, comment_text) VALUES
 (5, 'IT Support',  'Escalated to email admin team. ETA 2 hours.'),
 (6, 'IT Support',  'Network switch in conference room 4 replaced. Issue resolved.'),
 (6, 'Frank Turner','Confirmed working. No drops observed for 24 hours. Thanks!');
+
+-- ============================================================
+-- Phase 2 — Historical Tickets (ETL target table)
+-- ============================================================
+
+CREATE TABLE IF NOT EXISTS historical_tickets (
+    id                    INT AUTO_INCREMENT PRIMARY KEY,
+    employee_name         VARCHAR(100)  NOT NULL,
+    department            VARCHAR(100)  NOT NULL,
+    issue_category        VARCHAR(100)  NOT NULL,
+    description           TEXT          NOT NULL,
+    priority              VARCHAR(20)   NOT NULL,
+    status                VARCHAR(20)   NOT NULL,
+    created_date          DATE          NOT NULL,
+    resolved_date         DATE          NULL,
+    resolution_time_hours FLOAT         NULL,
+    created_month         VARCHAR(7)    NOT NULL  COMMENT 'Format: YYYY-MM',
+    created_quarter       VARCHAR(6)    NOT NULL  COMMENT 'Format: YYYY-QN',
+    is_resolved           TINYINT(1)    NOT NULL  DEFAULT 0,
+    resolution_bucket     VARCHAR(20)   NULL      COMMENT 'Fast/Normal/Slow/Very Slow',
+
+    -- indexes for analytics queries
+    INDEX idx_dept          (department),
+    INDEX idx_category      (issue_category),
+    INDEX idx_priority      (priority),
+    INDEX idx_status        (status),
+    INDEX idx_created_month (created_month),
+    INDEX idx_quarter       (created_quarter),
+    INDEX idx_is_resolved   (is_resolved)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

@@ -1,0 +1,261 @@
+employee_name,department,issue_category,description,priority,status,created_date,resolved_date,resolution_time_hours
+Victor Hall,HR,VPN Issue,VPN client crashes on Windows 11,High,Resolved,2025-06-22,2025-06-22,5.7
+Zane Wright,Product,Password Reset,Forgot Windows login password,High,Resolved,2025-08-20,2025-08-20,2.6
+Zane Wright,Product,Password Reset,Forgot Windows login password,Low,Closed,2025-08-20,2025-08-21,45.6
+Iris Patel,Engineering,Software Installation,Request AutoCAD 2024,High,Resolved,2025-08-19,2025-08-19,7.7
+Iris Patel,Engineering,Software Installation,Request AutoCAD 2024,Medium,Resolved,2025-08-19,2025-08-19,9.3
+Bob Smith,IT,System Crash,BSOD during heavy workload,Low,Open,2026-02-07,,
+Bob Smith,IT,System Crash,BSOD during heavy workload,High,Closed,2026-02-07,2026-02-07,2.6
+James Wilson,HR,Laptop Issue,Keyboard keys not responding,Critical,Resolved,2026-03-22,2026-03-22,3.4
+James Wilson,HR,Laptop Issue,Keyboard keys not responding,Medium,Resolved,2026-03-22,2026-03-22,16.7
+Sam Harris,Operations,Software Installation,Request AutoCAD 2024,Medium,Resolved,2026-04-16,2026-04-16,10.5
+Ananya Rao,Engineering,Laptop Issue,Keyboard keys not responding,High,In Progress,2025-09-15,,
+Carol White,Operations,Account Access,2FA not working,Critical,Resolved,2025-11-19,2025-11-19,3.6
+Victor Hall,IT,Software Installation,Antivirus not installed,Medium,Resolved,2026-02-24,2026-02-24,12.6
+Tina Moore,Sales,Network Connectivity,WiFi unavailable new wing,Medium,Open,2025-06-16,,
+Ananya Rao,Engineering,Password Reset,SSO session expired,Low,Resolved,2026-03-02,2026-03-03,27.0
+Mia Davis,Design,Printer Issue,Printer offline wing B,Medium,Open,2026-04-14,,
+Yara King,HR,Data Backup,Need to restore deleted files,Critical,Closed,2025-06-27,2025-06-27,1.5
+Frank Turner,IT,VPN Issue,VPN drops every 30 min,Critical,In Progress,2026-01-12,,
+Ananya Rao,Finance,System Crash,RAM causing random restarts,Critical,In Progress,2026-03-24,,
+Rachel Green,Design,Laptop Issue,Screen flickering during calls,Low,Closed,2026-03-03,2026-03-04,39.6
+Alice Johnson,HR,Network Connectivity,Slow internet 5th floor,Critical,In Progress,2025-08-31,,
+Bob Smith,Operations,Account Access,2FA not working,Critical,Resolved,2025-06-05,2025-06-05,3.9
+Sam Harris,Finance,Software Installation,Request AutoCAD 2024,High,Open,2025-09-13,,
+Rachel Green,Design,Hardware Request,Request ergonomic keyboard,Critical,Open,2025-10-07,,
+Mia Davis,Legal,Printer Issue,Print queue stuck,Critical,Resolved,2025-08-24,2025-08-24,0.7
+Alice Johnson,Design,System Crash,BSOD during heavy workload,Medium,Resolved,2026-04-28,2026-04-28,16.6
+Henry Brown,HR,VPN Issue,VPN client crashes on Windows 11,Critical,Resolved,2025-09-20,2025-09-20,2.8
+Grace Kim,Product,Software Installation,Python env setup needed,High,In Progress,2025-09-02,,
+Karthik Menon,IT,Hardware Request,USB hub for workstation,Low,Resolved,2025-10-29,2025-10-30,44.3
+Olivia Clark,Engineering,Data Backup,Last backup failed,High,Closed,2025-11-23,2025-11-23,6.1
+Karthik Menon,HR,Laptop Issue,Laptop overheating,Low,Resolved,2025-12-03,2025-12-04,32.8
+Olivia Clark,Operations,Password Reset,Forgot Windows login password,Medium,In Progress,2025-05-26,,
+Victor Hall,Product,VPN Issue,VPN client crashes on Windows 11,Critical,Open,2025-07-25,,
+Noah Thomas,IT,Printer Issue,Printer offline wing B,Medium,Resolved,2025-07-24,2025-07-24,11.6
+Mia Davis,Marketing,Printer Issue,Paper jam persisting,Medium,Closed,2025-07-19,2025-07-19,7.8
+Grace Kim,Engineering,Account Access,SharePoint permissions missing,High,Resolved,2025-05-30,2025-05-30,1.4
+Paul Adams,Product,System Crash,BSOD during heavy workload,Low,Open,2025-08-04,,
+Carol White,Design,Password Reset,Forgot Windows login password,High,Resolved,2026-02-16,2026-02-16,2.7
+Uma Sharma,Engineering,Account Access,SharePoint permissions missing,Low,Closed,2025-09-11,2025-09-12,33.8
+Xavier Lewis,Legal,Laptop Issue,Battery not charging,Medium,Resolved,2025-12-21,2025-12-21,10.3
+Ananya Rao,HR,VPN Issue,Cannot connect to VPN remotely,Medium,Open,2025-06-07,,
+Sam Harris,Operations,System Crash,BSOD during heavy workload,Medium,Open,2025-09-03,,
+Liam Chen,Marketing,Software Installation,Antivirus not installed,Medium,Resolved,2026-03-10,2026-03-10,23.7
+Karthik Menon,Product,VPN Issue,Cannot connect to VPN remotely,High,Closed,2025-07-08,2025-07-08,2.9
+Zane Wright,HR,Server Downtime,DB server connection timeout,High,Resolved,2025-10-23,2025-10-23,2.4
+Victor Hall,Marketing,System Crash,BSOD during heavy workload,Medium,In Progress,2025-06-17,,
+Victor Hall,Sales,Email Access,Outlook not syncing,Low,Resolved,2026-03-23,2026-03-25,71.0
+Frank Turner,IT,System Crash,BSOD during heavy workload,High,Closed,2025-06-08,2025-06-08,7.6
+Xavier Lewis,Finance,System Crash,System freezes on reports,Low,Resolved,2025-12-07,2025-12-08,30.1
+James Wilson,Legal,VPN Issue,VPN client crashes on Windows 11,Critical,Resolved,2026-04-07,2026-04-07,0.9
+Ananya Rao,Product,Hardware Request,Request ergonomic keyboard,Critical,Closed,2025-07-23,2025-07-23,3.9
+Karthik Menon,Finance,Hardware Request,External hard drive needed,Low,Closed,2025-11-27,2025-11-29,62.5
+Rahul Gupta,Operations,Email Access,Email quota exceeded,Low,Closed,2025-05-20,2025-05-22,65.2
+Henry Brown,Operations,Printer Issue,Print queue stuck,Medium,In Progress,2025-08-23,,
+Alice Johnson,Operations,Hardware Request,External hard drive needed,Medium,In Progress,2025-10-27,,
+Victor Hall,Product,Hardware Request,External hard drive needed,High,In Progress,2025-05-15,,
+David Lee,Marketing,Software Installation,Need MS Office 365,High,Open,2025-06-25,,
+Uma Sharma,Sales,Network Connectivity,Intermittent drops in conf room,High,Resolved,2025-11-14,2025-11-14,7.3
+Grace Kim,Marketing,VPN Issue,VPN client crashes on Windows 11,High,Resolved,2025-11-03,2025-11-03,4.0
+Wendy Young,Legal,Account Access,SharePoint permissions missing,Medium,In Progress,2026-01-15,,
+James Wilson,Sales,Network Connectivity,Cannot access file shares,Medium,Resolved,2025-08-07,2025-08-07,12.4
+Mia Davis,Finance,Account Access,New employee account setup,High,Resolved,2025-10-03,2025-10-03,3.0
+Noah Thomas,Design,Account Access,2FA not working,High,Resolved,2026-04-11,2026-04-11,2.5
+Paul Adams,Finance,Data Backup,Need to restore deleted files,Low,Resolved,2025-06-17,2025-06-19,63.3
+Ananya Rao,Operations,Data Backup,Backup schedule not running,Medium,In Progress,2025-05-13,,
+Bob Smith,Operations,Printer Issue,Paper jam persisting,High,Closed,2025-11-29,2025-11-29,7.2
+Tina Moore,Operations,Server Downtime,DB server connection timeout,High,Resolved,2025-07-15,2025-07-15,5.6
+Alice Johnson,HR,Hardware Request,USB hub for workstation,Medium,In Progress,2025-05-26,,
+Sam Harris,Operations,Password Reset,Need to reset email password,Medium,In Progress,2025-12-13,,
+Uma Sharma,Product,Hardware Request,Request ergonomic keyboard,High,Resolved,2025-12-30,2025-12-30,4.2
+Ananya Rao,Operations,Data Backup,Backup storage full,Medium,Closed,2026-03-17,2026-03-17,8.8
+Olivia Clark,HR,Server Downtime,File server down Building 2,Medium,Resolved,2026-02-01,2026-02-01,5.6
+Eva Martinez,Operations,Hardware Request,Need additional monitor,High,Closed,2025-11-29,2025-11-29,3.9
+Sam Harris,IT,Hardware Request,USB hub for workstation,Low,In Progress,2026-02-24,,
+Xavier Lewis,Engineering,Account Access,SharePoint permissions missing,Medium,Resolved,2025-09-30,2025-09-30,19.1
+Rahul Gupta,Sales,System Crash,System freezes on reports,High,Resolved,2026-01-05,2026-01-05,2.5
+Noah Thomas,IT,VPN Issue,VPN timeout after idle,Medium,Closed,2025-07-24,2025-07-24,20.8
+Quinn Baker,Finance,Account Access,New employee account setup,Medium,In Progress,2025-06-12,,
+Victor Hall,Sales,Software Installation,Antivirus not installed,Critical,Resolved,2025-11-11,2025-11-11,1.6
+Olivia Clark,Legal,Network Connectivity,WiFi unavailable new wing,High,Resolved,2025-09-07,2025-09-07,6.8
+Paul Adams,Engineering,Server Downtime,File server down Building 2,Medium,Open,2025-08-23,,
+Victor Hall,HR,Data Backup,Backup schedule not running,Low,Resolved,2025-08-11,2025-08-13,64.3
+Uma Sharma,Finance,Laptop Issue,Laptop overheating,Low,Closed,2025-12-25,2025-12-27,57.6
+Ananya Rao,Legal,Software Installation,Need MS Office 365,High,Open,2025-07-23,,
+James Wilson,HR,Account Access,2FA not working,Low,Resolved,2025-11-20,2025-11-22,69.2
+Grace Kim,HR,Account Access,New employee account setup,High,Closed,2026-04-22,2026-04-22,6.4
+Rahul Gupta,Design,Password Reset,Forgot Windows login password,High,Closed,2025-10-25,2025-10-25,4.7
+Wendy Young,Legal,Password Reset,SSO session expired,Medium,Resolved,2026-01-06,2026-01-06,6.1
+Liam Chen,IT,Server Downtime,File server down Building 2,Low,Resolved,2026-03-12,2026-03-14,62.8
+Sam Harris,IT,Printer Issue,Cannot print from mobile,Medium,Closed,2025-10-13,2025-10-13,21.0
+Priya Nair,HR,Email Access,Email quota exceeded,Critical,Resolved,2026-02-16,2026-02-16,2.6
+Mia Davis,Legal,VPN Issue,VPN timeout after idle,Medium,Resolved,2025-08-17,2025-08-17,11.1
+Iris Patel,Legal,Email Access,Missing emails after migration,Critical,Closed,2026-02-09,2026-02-09,0.5
+Grace Kim,HR,Laptop Issue,Laptop overheating,High,Resolved,2026-04-19,2026-04-19,4.3
+Xavier Lewis,IT,Printer Issue,Print queue stuck,High,Resolved,2025-11-24,2025-11-24,5.8
+James Wilson,Design,Network Connectivity,WiFi unavailable new wing,Medium,Resolved,2026-02-06,2026-02-06,10.6
+Xavier Lewis,IT,Email Access,Outlook not syncing,Medium,Resolved,2025-10-09,2025-10-09,6.4
+Sam Harris,Finance,Laptop Issue,Battery not charging,Medium,Resolved,2025-06-21,2025-06-21,20.7
+James Wilson,Operations,Network Connectivity,Cannot access file shares,Low,Resolved,2025-09-18,2025-09-19,26.2
+Bob Smith,Product,Email Access,Email quota exceeded,High,Resolved,2025-06-22,2025-06-22,7.1
+Tina Moore,Marketing,Printer Issue,Printer offline wing B,Medium,Resolved,2025-09-07,2025-09-07,22.8
+Paul Adams,HR,Password Reset,Forgot Windows login password,Medium,Resolved,2025-07-17,2025-07-17,7.0
+Tina Moore,Marketing,Password Reset,SSO session expired,Critical,Resolved,2026-03-07,2026-03-07,2.6
+Uma Sharma,Operations,System Crash,RAM causing random restarts,Medium,In Progress,2026-02-26,,
+Noah Thomas,Marketing,Account Access,New employee account setup,High,Closed,2025-08-15,2025-08-15,5.4
+Iris Patel,HR,Software Installation,Request AutoCAD 2024,Medium,Closed,2025-05-02,2025-05-02,12.2
+Xavier Lewis,Design,Printer Issue,Cannot print from mobile,Medium,Resolved,2026-04-25,2026-04-25,21.2
+Carol White,Operations,Email Access,Outlook not syncing,High,Closed,2025-12-04,2025-12-04,1.8
+Henry Brown,Finance,Email Access,Outlook not syncing,High,Resolved,2025-10-05,2025-10-05,5.2
+Priya Nair,Design,Email Access,Missing emails after migration,Medium,Resolved,2026-04-24,2026-04-24,12.1
+Iris Patel,Product,System Crash,BSOD during heavy workload,Medium,Resolved,2025-12-08,2025-12-08,18.7
+Uma Sharma,Marketing,VPN Issue,Cannot connect to VPN remotely,Low,Open,2026-04-10,,
+Priya Nair,Marketing,Account Access,2FA not working,Low,Closed,2026-01-21,2026-01-23,55.3
+Quinn Baker,Marketing,Software Installation,Python env setup needed,Critical,Resolved,2025-06-16,2025-06-16,2.1
+Noah Thomas,Legal,Network Connectivity,Slow internet 5th floor,High,In Progress,2025-11-27,,
+Xavier Lewis,IT,Email Access,Cannot access shared mailbox,High,Resolved,2025-12-19,2025-12-19,1.6
+Iris Patel,Legal,Password Reset,Forgot Windows login password,Critical,Resolved,2026-04-02,2026-04-02,3.5
+Olivia Clark,Sales,VPN Issue,VPN timeout after idle,Low,Resolved,2026-03-17,2026-03-18,45.2
+Bob Smith,Operations,Email Access,Email quota exceeded,Medium,Open,2026-04-23,,
+Paul Adams,HR,VPN Issue,VPN client crashes on Windows 11,Critical,Closed,2026-04-29,2026-04-29,1.1
+Sam Harris,Engineering,System Crash,BSOD during heavy workload,Medium,Resolved,2025-12-23,2025-12-23,22.9
+Victor Hall,Finance,Printer Issue,Cannot print from mobile,Critical,Resolved,2025-11-29,2025-11-29,3.4
+Paul Adams,Operations,Printer Issue,Print queue stuck,High,Resolved,2025-06-05,2025-06-05,2.9
+Karthik Menon,Sales,Network Connectivity,Intermittent drops in conf room,Critical,Resolved,2025-09-22,2025-09-22,3.0
+Priya Nair,Design,Account Access,Cannot access HR portal,Critical,Resolved,2025-12-15,2025-12-15,2.4
+Liam Chen,Legal,System Crash,RAM causing random restarts,High,Resolved,2025-08-05,2025-08-05,7.9
+Henry Brown,Design,Hardware Request,Need additional monitor,Medium,Closed,2025-10-10,2025-10-10,18.9
+Xavier Lewis,Sales,Hardware Request,Request ergonomic keyboard,Critical,Closed,2026-01-09,2026-01-09,3.9
+Eva Martinez,Product,Account Access,2FA not working,Medium,Resolved,2025-06-21,2025-06-21,14.5
+Olivia Clark,Engineering,Server Downtime,DB server connection timeout,Low,In Progress,2025-06-08,,
+Paul Adams,Marketing,Network Connectivity,Intermittent drops in conf room,High,Resolved,2025-10-16,2025-10-16,7.0
+Rahul Gupta,Product,Hardware Request,USB hub for workstation,Critical,Closed,2026-02-02,2026-02-02,0.6
+Carol White,Operations,Data Backup,Backup schedule not running,High,Resolved,2025-06-16,2025-06-16,4.0
+David Lee,HR,Printer Issue,Printer offline wing B,Low,Resolved,2025-05-24,2025-05-25,39.6
+Bob Smith,Marketing,Network Connectivity,WiFi unavailable new wing,Medium,Resolved,2026-02-14,2026-02-14,17.6
+Frank Turner,Finance,Software Installation,Request AutoCAD 2024,Low,In Progress,2026-01-10,,
+Quinn Baker,Design,Software Installation,Python env setup needed,Medium,Closed,2025-09-08,2025-09-08,17.3
+Zane Wright,IT,Email Access,Email quota exceeded,High,Resolved,2025-10-24,2025-10-24,7.9
+James Wilson,Sales,Server Downtime,DB server connection timeout,Medium,In Progress,2025-11-13,,
+Rahul Gupta,IT,Password Reset,Need to reset email password,Medium,Closed,2026-04-24,2026-04-24,9.9
+Priya Nair,Sales,Email Access,Cannot access shared mailbox,Low,In Progress,2026-03-07,,
+Yara King,IT,Email Access,Missing emails after migration,High,Resolved,2025-08-21,2025-08-21,5.5
+Uma Sharma,Marketing,Data Backup,Backup schedule not running,High,Closed,2026-03-18,2026-03-18,1.7
+Victor Hall,Engineering,Email Access,Missing emails after migration,High,Resolved,2025-07-07,2025-07-07,1.6
+James Wilson,Legal,Server Downtime,File server down Building 2,Medium,Resolved,2026-01-27,2026-01-27,14.0
+Iris Patel,Finance,Email Access,Missing emails after migration,Critical,Open,2025-10-21,,
+Karthik Menon,HR,Printer Issue,Print queue stuck,Critical,Resolved,2026-04-12,2026-04-12,3.0
+Mia Davis,Product,Network Connectivity,Slow internet 5th floor,Low,Resolved,2026-01-30,2026-01-31,29.9
+Liam Chen,Marketing,Account Access,SharePoint permissions missing,Medium,Closed,2025-06-25,2025-06-25,17.5
+Paul Adams,Engineering,Account Access,Cannot access HR portal,Critical,Closed,2026-03-28,2026-03-28,0.7
+Priya Nair,IT,Server Downtime,DB server connection timeout,Medium,Resolved,2025-05-24,2025-05-24,22.9
+James Wilson,IT,Password Reset,AD account locked,Low,In Progress,2025-11-15,,
+Olivia Clark,Legal,Data Backup,Backup storage full,Critical,Closed,2026-02-25,2026-02-25,3.1
+Eva Martinez,Sales,Data Backup,Backup storage full,Low,Resolved,2025-09-21,2025-09-22,25.6
+Liam Chen,Operations,Printer Issue,Cannot print from mobile,Medium,Resolved,2025-06-20,2025-06-20,23.6
+Liam Chen,Product,Data Backup,Backup schedule not running,Medium,Resolved,2025-07-02,2025-07-02,23.0
+Priya Nair,IT,Password Reset,Forgot Windows login password,High,Closed,2025-05-26,2025-05-26,6.5
+Henry Brown,Finance,Account Access,Cannot access HR portal,Medium,In Progress,2026-02-25,,
+Grace Kim,Operations,Network Connectivity,Intermittent drops in conf room,High,Closed,2025-09-19,2025-09-19,7.0
+Eva Martinez,Finance,System Crash,BSOD during heavy workload,Medium,Resolved,2025-07-07,2025-07-07,4.3
+Karthik Menon,Operations,Account Access,New employee account setup,Medium,Resolved,2025-07-04,2025-07-04,18.8
+Rachel Green,HR,Server Downtime,File server down Building 2,Low,Resolved,2026-01-18,2026-01-20,52.5
+Olivia Clark,Product,Laptop Issue,Battery not charging,Critical,Resolved,2025-12-21,2025-12-21,2.8
+Alice Johnson,Engineering,Printer Issue,Printer offline wing B,High,Resolved,2026-01-07,2026-01-07,6.0
+Olivia Clark,HR,Password Reset,AD account locked,Medium,Resolved,2025-09-18,2025-09-18,16.5
+Tina Moore,Product,Server Downtime,File server down Building 2,Medium,Open,2025-12-19,,
+Rachel Green,Design,Hardware Request,Request ergonomic keyboard,Low,Closed,2025-12-07,2025-12-08,45.7
+Henry Brown,Sales,Network Connectivity,Intermittent drops in conf room,High,Resolved,2025-10-08,2025-10-08,4.0
+Wendy Young,Marketing,Network Connectivity,WiFi unavailable new wing,Critical,Closed,2025-06-04,2025-06-04,0.8
+Carol White,HR,Hardware Request,Request ergonomic keyboard,Low,Closed,2026-02-09,2026-02-10,26.9
+Sam Harris,Product,Network Connectivity,WiFi unavailable new wing,High,Resolved,2025-05-27,2025-05-27,7.8
+Uma Sharma,Marketing,Network Connectivity,Cannot access file shares,Low,Resolved,2026-04-02,2026-04-03,47.1
+Rahul Gupta,HR,Network Connectivity,Slow internet 5th floor,High,Resolved,2026-02-18,2026-02-18,2.6
+Noah Thomas,Product,Account Access,New employee account setup,High,Closed,2026-03-08,2026-03-08,7.5
+Priya Nair,Marketing,VPN Issue,VPN drops every 30 min,Low,Closed,2025-10-21,2025-10-22,40.8
+Frank Turner,Finance,Account Access,New employee account setup,High,Resolved,2025-06-16,2025-06-16,6.2
+Grace Kim,Sales,Hardware Request,External hard drive needed,Medium,Resolved,2025-10-14,2025-10-14,19.5
+Tina Moore,Design,Password Reset,Forgot Windows login password,Critical,Resolved,2026-04-11,2026-04-11,0.8
+Olivia Clark,Sales,Printer Issue,Print queue stuck,High,Resolved,2026-01-18,2026-01-18,1.8
+Noah Thomas,HR,Email Access,Missing emails after migration,High,Closed,2025-05-24,2025-05-24,2.5
+Uma Sharma,Engineering,VPN Issue,VPN client crashes on Windows 11,Medium,Open,2025-09-08,,
+James Wilson,Legal,Password Reset,AD account locked,Low,Closed,2025-07-06,2025-07-07,42.2
+Xavier Lewis,Operations,System Crash,RAM causing random restarts,High,Closed,2025-06-06,2025-06-06,3.8
+Yara King,Engineering,Hardware Request,External hard drive needed,Low,Open,2026-02-19,,
+Noah Thomas,Design,Hardware Request,Need additional monitor,High,Resolved,2025-11-24,2025-11-24,1.1
+Karen Scott,Finance,Account Access,SharePoint permissions missing,Medium,Closed,2025-06-15,2025-06-15,12.7
+David Lee,Operations,Hardware Request,USB hub for workstation,High,Resolved,2025-10-06,2025-10-06,6.2
+Henry Brown,Legal,Software Installation,Request AutoCAD 2024,Low,Closed,2025-10-26,2025-10-27,40.9
+Priya Nair,Finance,Laptop Issue,Laptop overheating,Low,Resolved,2026-03-05,2026-03-06,31.3
+Ananya Rao,HR,Software Installation,Python env setup needed,Critical,Closed,2026-02-13,2026-02-13,3.2
+Olivia Clark,Design,Data Backup,Need to restore deleted files,High,Closed,2025-07-17,2025-07-17,4.1
+Paul Adams,IT,Data Backup,Last backup failed,Medium,Resolved,2025-10-28,2025-10-28,14.1
+James Wilson,IT,Printer Issue,Cannot print from mobile,Low,Resolved,2025-06-09,2025-06-11,54.9
+Rahul Gupta,HR,Account Access,New employee account setup,High,Resolved,2025-12-17,2025-12-17,7.4
+Tina Moore,Operations,Network Connectivity,Intermittent drops in conf room,High,Resolved,2025-12-17,2025-12-17,1.7
+Zane Wright,Legal,Server Downtime,Dev server unreachable,Low,Closed,2025-09-04,2025-09-06,58.0
+Olivia Clark,Product,System Crash,RAM causing random restarts,High,Resolved,2025-11-15,2025-11-15,3.9
+Karen Scott,Design,VPN Issue,Cannot connect to VPN remotely,High,Closed,2025-10-16,2025-10-16,1.7
+Wendy Young,Sales,Email Access,Outlook not syncing,Medium,In Progress,2025-10-18,,
+Carol White,Design,Data Backup,Backup storage full,Low,Resolved,2025-07-06,2025-07-08,52.6
+Carol White,Marketing,System Crash,System freezes on reports,Medium,Closed,2026-04-09,2026-04-09,18.1
+Yara King,Product,Password Reset,Need to reset email password,High,Resolved,2025-05-10,2025-05-10,3.5
+Frank Turner,Operations,Network Connectivity,Cannot access file shares,Critical,Resolved,2025-07-10,2025-07-10,1.0
+James Wilson,HR,System Crash,BSOD during heavy workload,High,In Progress,2026-04-04,,
+Karen Scott,Design,Software Installation,Request AutoCAD 2024,High,Resolved,2026-04-20,2026-04-20,6.4
+Karthik Menon,Finance,Server Downtime,DB server connection timeout,Medium,Resolved,2025-12-14,2025-12-14,16.2
+Ananya Rao,IT,Laptop Issue,Keyboard keys not responding,Medium,Resolved,2025-08-08,2025-08-08,11.4
+Tina Moore,IT,Printer Issue,Paper jam persisting,High,Closed,2025-07-22,2025-07-22,6.7
+Karthik Menon,Design,Software Installation,Python env setup needed,Critical,Resolved,2025-11-07,2025-11-07,2.4
+David Lee,Product,Password Reset,Need to reset email password,Medium,Closed,2025-12-17,2025-12-17,22.1
+Eva Martinez,Sales,Password Reset,SSO session expired,Critical,Resolved,2025-10-26,2025-10-26,3.8
+Noah Thomas,Engineering,Hardware Request,Need additional monitor,Medium,Resolved,2025-11-08,2025-11-08,8.5
+Karen Scott,HR,Server Downtime,DB server connection timeout,High,Closed,2025-05-20,2025-05-20,3.0
+Priya Nair,IT,Server Downtime,Web server 503 errors,High,Closed,2025-12-16,2025-12-16,5.3
+Zane Wright,HR,VPN Issue,VPN timeout after idle,Medium,In Progress,2025-06-26,,
+Ananya Rao,Marketing,Laptop Issue,Keyboard keys not responding,Medium,Resolved,2026-03-24,2026-03-24,19.9
+Olivia Clark,HR,Password Reset,Forgot Windows login password,High,Resolved,2026-03-20,2026-03-20,4.6
+Henry Brown,Finance,Email Access,Outlook not syncing,Medium,Closed,2026-02-17,2026-02-17,12.3
+Wendy Young,HR,System Crash,BSOD during heavy workload,Critical,Resolved,2025-11-16,2025-11-16,3.6
+Bob Smith,Sales,Network Connectivity,Intermittent drops in conf room,Medium,Resolved,2025-10-24,2025-10-24,8.8
+Wendy Young,HR,Account Access,New employee account setup,High,Resolved,2025-10-28,2025-10-28,4.8
+Priya Nair,Finance,Data Backup,Backup schedule not running,Medium,Closed,2025-07-09,2025-07-09,5.3
+Ananya Rao,IT,VPN Issue,VPN client crashes on Windows 11,Medium,Resolved,2025-05-22,2025-05-22,10.3
+James Wilson,Product,Hardware Request,External hard drive needed,Critical,Resolved,2025-05-19,2025-05-19,3.1
+Grace Kim,Marketing,Network Connectivity,Slow internet 5th floor,Critical,Resolved,2025-09-17,2025-09-17,0.9
+Liam Chen,Sales,Hardware Request,USB hub for workstation,High,In Progress,2025-10-21,,
+Frank Turner,IT,Server Downtime,File server down Building 2,Medium,Open,2025-06-12,,
+Yara King,Sales,Password Reset,AD account locked,Medium,Open,2026-02-04,,
+James Wilson,Legal,Password Reset,Need to reset email password,Low,Closed,2025-12-15,2025-12-17,52.9
+Noah Thomas,Finance,Server Downtime,File server down Building 2,Medium,Resolved,2026-03-11,2026-03-12,24.0
+Iris Patel,Engineering,Password Reset,AD account locked,High,Resolved,2025-05-16,2025-05-16,2.0
+Uma Sharma,IT,VPN Issue,VPN drops every 30 min,Low,Resolved,2025-11-02,2025-11-03,42.4
+Tina Moore,Engineering,Account Access,SharePoint permissions missing,Low,Resolved,2025-11-07,2025-11-08,45.3
+Carol White,Design,Software Installation,Antivirus not installed,Medium,Resolved,2025-09-05,2025-09-05,23.2
+Alice Johnson,Finance,Printer Issue,Printer offline wing B,Medium,In Progress,2025-09-12,,
+Ananya Rao,Marketing,Server Downtime,File server down Building 2,Medium,Open,2026-04-21,,
+Quinn Baker,IT,Laptop Issue,Keyboard keys not responding,Low,In Progress,2025-07-28,,
+Zane Wright,IT,Password Reset,Need to reset email password,High,Open,2026-04-07,,
+Liam Chen,HR,System Crash,System freezes on reports,Medium,In Progress,2026-04-30,,
+Xavier Lewis,Finance,Network Connectivity,Cannot access file shares,Medium,Resolved,2025-07-11,2025-07-11,8.7
+Paul Adams,Engineering,Network Connectivity,Cannot access file shares,High,Resolved,2026-03-10,2026-03-10,7.2
+Carol White,Marketing,Hardware Request,USB hub for workstation,Critical,Closed,2025-11-26,2025-11-26,3.4
+Carol White,Finance,Network Connectivity,Slow internet 5th floor,High,Resolved,2025-07-05,2025-07-05,7.1
+Ananya Rao,Product,Data Backup,Backup schedule not running,High,Closed,2025-12-08,2025-12-08,4.5
+Rahul Gupta,Engineering,Password Reset,AD account locked,Medium,Resolved,2025-10-13,2025-10-13,22.7
+Henry Brown,Legal,System Crash,RAM causing random restarts,Critical,In Progress,2025-08-09,,
+Victor Hall,Product,Email Access,Cannot access shared mailbox,Low,Resolved,2026-01-13,2026-01-15,54.8
+Tina Moore,Design,Software Installation,Antivirus not installed,Low,Closed,2026-02-13,2026-02-14,26.0
+Rahul Gupta,Engineering,Password Reset,Need to reset email password,Low,Closed,2026-03-30,2026-03-31,34.1
+Tina Moore,Sales,Account Access,SharePoint permissions missing,High,Resolved,2026-03-25,2026-03-25,7.7
+Paul Adams,Operations,Data Backup,Last backup failed,Medium,Resolved,2025-07-20,2025-07-20,12.8
+Paul Adams,IT,Laptop Issue,Battery not charging,Medium,Resolved,2025-10-24,2025-10-24,23.5
+Eva Martinez,Legal,System Crash,OS corruption after update,High,Resolved,2025-07-02,2025-07-02,2.9
+Henry Brown,Finance,Password Reset,SSO session expired,Low,Open,2025-09-05,,
+Rahul Gupta,Finance,Network Connectivity,Cannot access file shares,Critical,Closed,2025-07-21,2025-07-21,2.2
+Rachel Green,IT,Printer Issue,Printer offline wing B,Critical,Resolved,2025-11-18,2025-11-18,2.3
+Henry Brown,Operations,Account Access,2FA not working,Medium,Resolved,2026-03-02,2026-03-02,21.6
+Victor Hall,IT,Email Access,Email quota exceeded,Medium,In Progress,2025-07-08,,
+Zane Wright,Marketing,Server Downtime,Dev server unreachable,Medium,Resolved,2025-11-22,2025-11-22,5.0
+Sam Harris,Operations,Network Connectivity,WiFi unavailable new wing,High,Resolved,2026-02-06,2026-02-06,3.0
