@@ -8,6 +8,7 @@ import { getTicket, updateTicket, deleteTicket, addComment, deleteComment } from
 import StatusBadge from '../components/ui/StatusBadge'
 import PriorityBadge from '../components/ui/PriorityBadge'
 import { Toast, useToast } from '../components/ui/Toast'
+import { TicketDetailSkeleton } from '../components/ui/Skeleton'
 
 const CATEGORIES = ['VPN Issue','Password Reset','Software Installation','Laptop Issue','Email Access','Network Connectivity','Hardware Request']
 const DEPARTMENTS = ['Engineering','HR','Finance','Operations','Marketing','Legal','Sales','IT','Product']
@@ -127,7 +128,7 @@ export default function TicketDetail() {
     } catch { showToast('Failed to delete comment.', 'error') }
   }
 
-  if (loading) return <div className="flex justify-center items-center h-64"><RefreshCw className="w-8 h-8 text-indigo-400 animate-spin" /></div>
+  if (loading) return <TicketDetailSkeleton />
   if (error)   return (
     <div className="flex flex-col items-center justify-center h-64 gap-3">
       <AlertTriangle className="w-10 h-10 text-red-400" />

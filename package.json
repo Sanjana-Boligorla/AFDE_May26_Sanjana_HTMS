@@ -1,0 +1,27 @@
+{
+  "name": "helpdesk_ticket_management_system",
+  "version": "1.0.0",
+  "description": "> A full-stack internal IT support portal built with React, FastAPI, and MySQL.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sanjana-Boligorla/AFDE_May26_Sanjana_HTMS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Sanjana-Boligorla/AFDE_May26_Sanjana_HTMS/issues"
+  },
+  "homepage": "https://github.com/Sanjana-Boligorla/AFDE_May26_Sanjana_HTMS#readme",
+  "devDependencies": {
+    "puppeteer": "^25.0.4"
+  }
+}

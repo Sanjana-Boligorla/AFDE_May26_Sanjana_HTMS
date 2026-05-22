@@ -6,6 +6,7 @@ import {
 } from 'lucide-react'
 import { getStats } from '../services/api'
 import StatCard from '../components/ui/StatCard'
+import { StatCardSkeleton } from '../components/ui/Skeleton'
 import StatusBadge from '../components/ui/StatusBadge'
 import PriorityBadge from '../components/ui/PriorityBadge'
 
@@ -87,7 +88,22 @@ export default function Dashboard() {
 
   useEffect(() => { fetchStats() }, [])
 
-  if (loading) return <Spinner />
+  if (loading) return (
+    <div className="space-y-6 max-w-7xl mx-auto">
+      <div className="bg-slate-200 animate-pulse rounded-xl h-24" />
+      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+        {Array.from({length:6}).map((_,i) => <StatCardSkeleton key={i} />)}
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="card p-5 space-y-3 animate-pulse">
+          {Array.from({length:5}).map((_,i) => <div key={i} className="h-4 bg-slate-200 rounded" />)}
+        </div>
+        <div className="card lg:col-span-2 animate-pulse">
+          {Array.from({length:5}).map((_,i) => <div key={i} className="h-16 border-b border-slate-100 bg-slate-50" />)}
+        </div>
+      </div>
+    </div>
+  )
   if (error)   return <ErrorState message={error} onRetry={fetchStats} />
 
   const byStatus   = stats.by_status   || {}
