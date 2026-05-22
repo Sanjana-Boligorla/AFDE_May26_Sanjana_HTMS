@@ -1,12 +1,13 @@
 # 🎫 Helpdesk Ticket Management System
 
-> A full-stack internal IT support portal built with React, FastAPI, and MySQL.
+> A full-stack internal IT support portal with analytics pipeline built with React, FastAPI, and MySQL.
 
-![Phase](https://img.shields.io/badge/Phase-1%20Complete-brightgreen)
+![Phase](https://img.shields.io/badge/Phase-2%20Complete-brightgreen)
 ![Backend](https://img.shields.io/badge/Backend-FastAPI-009688)
 ![Frontend](https://img.shields.io/badge/Frontend-React%2018-61DAFB)
 ![Database](https://img.shields.io/badge/Database-MySQL-4479A1)
 ![Styling](https://img.shields.io/badge/Styling-Tailwind%20CSS-38BDF8)
+![ETL](https://img.shields.io/badge/ETL-Pandas%20%2B%20SQLAlchemy-150458)
 
 ---
 
@@ -14,7 +15,7 @@
 
 Modern organizations struggle with managing internal IT support requests via email or spreadsheets — leading to poor tracking, delayed resolutions, and no historical visibility.
 
-This **Helpdesk Ticket Management System** solves that by providing a centralized web portal where employees raise support tickets and IT admins manage and resolve them.
+This **Helpdesk Ticket Management System** solves that by providing a centralized web portal where employees raise support tickets, IT admins manage and resolve them, and analysts explore historical performance data through a dedicated analytics dashboard.
 
 ---
 
@@ -29,6 +30,8 @@ This **Helpdesk Ticket Management System** solves that by providing a centralize
 | 🎫 Ticket Detail | Full view, inline edit, status management, resolution notes |
 | 💬 Comments | Threaded comment history per ticket with timestamps |
 | 🗑 Delete | Remove tickets with cascading comment deletion |
+| 🔄 ETL Pipeline | Extract → Transform → Load historical CSV data into MySQL |
+| 📈 Analytics | Historical dashboard — KPIs, category/department/priority breakdowns, trend charts |
 
 ---
 
@@ -39,6 +42,7 @@ This **Helpdesk Ticket Management System** solves that by providing a centralize
 | **Frontend** | React 18, Vite, Tailwind CSS, React Router v6, Axios, Lucide Icons |
 | **Backend** | Python FastAPI, SQLAlchemy ORM, Pydantic v2 |
 | **Database** | MySQL 8.x (with PyMySQL driver) |
+| **ETL** | Python, Pandas, SQLAlchemy |
 | **Dev Tools** | Uvicorn, python-dotenv |
 
 ---
@@ -68,6 +72,24 @@ This **Helpdesk Ticket Management System** solves that by providing a centralize
 | comment_text | TEXT | Comment body |
 | created_at | DATETIME | Auto-set on creation |
 
+### `historical_tickets` table (Phase 2 — ETL target)
+| Column | Type | Description |
+|---|---|---|
+| id | INT AUTO_INCREMENT PK | Row ID |
+| employee_name | VARCHAR(100) | Requester name |
+| department | VARCHAR(100) | Requester department |
+| issue_category | VARCHAR(100) | Issue type |
+| description | TEXT | Issue description |
+| priority | VARCHAR(20) | Low / Medium / High / Critical |
+| status | VARCHAR(20) | Open / In Progress / Resolved / Closed |
+| created_date | DATE | Ticket creation date |
+| resolved_date | DATE NULL | Date resolved (if applicable) |
+| resolution_time_hours | FLOAT NULL | Hours from creation to resolution |
+| created_month | VARCHAR(7) | Format: YYYY-MM |
+| created_quarter | VARCHAR(6) | Format: YYYY-QN |
+| is_resolved | TINYINT(1) | Boolean — resolved or not |
+| resolution_bucket | VARCHAR(20) | Fast / Normal / Slow / Very Slow |
+
 ---
 
 ## 📁 Project Structure
@@ -76,22 +98,23 @@ This **Helpdesk Ticket Management System** solves that by providing a centralize
 Helpdesk_ticket_management_system/
 │
 ├── backend/
-│   ├── main.py           # FastAPI app entry point + CORS
-│   ├── database.py       # MySQL connection (SQLAlchemy)
-│   ├── models.py         # ORM models (Ticket, TicketComment)
-│   ├── schemas.py        # Pydantic request/response schemas
-│   ├── crud.py           # All DB operations
+│   ├── main.py              # FastAPI app entry point + CORS
+│   ├── database.py          # MySQL connection (SQLAlchemy)
+│   ├── models.py            # ORM models (Ticket, TicketComment, HistoricalTicket)
+│   ├── schemas.py           # Pydantic request/response schemas
+│   ├── crud.py              # All DB operations
 │   ├── routers/
-│   │   └── tickets.py    # All API endpoints
-│   ├── .env              # DB credentials (gitignored)
-│   ├── .env.example      # Credential template
+│   │   ├── tickets.py       # Ticket API endpoints
+│   │   └── analytics.py     # Analytics API endpoints (Phase 2)
+│   ├── .env                 # DB credentials (gitignored)
+│   ├── .env.example         # Credential template
 │   └── requirements.txt
 │
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── layout/   Sidebar · Navbar · Layout
-│   │   │   ├── ui/       StatusBadge · PriorityBadge · StatCard · Toast · Skeleton
+│   │   │   ├── layout/      Sidebar · Navbar · Layout
+│   │   │   ├── ui/          StatusBadge · PriorityBadge · StatCard · Toast · Skeleton
 │   │   │   └── ErrorBoundary.jsx
 │   │   ├── pages/
 │   │   │   ├── Dashboard.jsx
@@ -99,21 +122,37 @@ Helpdesk_ticket_management_system/
 │   │   │   ├── CreateTicket.jsx
 │   │   │   ├── TicketDetail.jsx
 │   │   │   ├── SearchPage.jsx
+│   │   │   ├── AnalyticsDashboard.jsx   # Phase 2
 │   │   │   └── NotFound.jsx
 │   │   ├── services/
-│   │   │   └── api.js    # Axios API calls
+│   │   │   └── api.js       # Axios API calls (tickets + analytics)
 │   │   ├── App.jsx
 │   │   └── main.jsx
 │   ├── package.json
 │   └── vite.config.js
 │
+├── etl/                     # Phase 2 — ETL Pipeline
+│   ├── config.py            # DB URL + dataset path from .env
+│   ├── extract.py           # Stage 1: Read CSV, validate
+│   ├── transform.py         # Stage 2: Clean, normalize, enrich
+│   ├── load.py              # Stage 3: Create table, insert rows
+│   ├── pipeline.py          # Orchestrator (run this)
+│   └── requirements.txt
+│
+├── datasets/
+│   ├── tickets_historical.csv   # 260-row historical dataset
+│   └── README.md
+│
 ├── database/
-│   └── schema.sql        # DDL + seed data
+│   └── schema.sql           # DDL for all 3 tables + seed data
 │
 ├── docs/
-│   └── api-docs.md       # Full API reference
+│   └── api-docs.md          # Full API reference (tickets + analytics)
 │
-├── screenshots/          # Application screenshots
+├── scripts/
+│   └── take-screenshots.js  # Puppeteer auto-screenshot (Phase 1 + 2)
+│
+├── screenshots/             # Application screenshots
 ├── README.md
 └── .gitignore
 ```
@@ -141,7 +180,7 @@ cd AFDE_May26_Sanjana_HTMS
 mysql -u root -p < database/schema.sql
 ```
 
-Creates `helpdesk_db` with both tables and 8 sample tickets.
+Creates `helpdesk_db` with all three tables and 8 sample tickets.
 
 ### 3. Backend Setup
 
@@ -169,9 +208,23 @@ npm run dev
 
 App running at: **http://localhost:5173**
 
+### 5. ETL Pipeline (Phase 2)
+
+```bash
+cd etl
+pip install -r requirements.txt
+
+# Run the full pipeline (reads datasets/tickets_historical.csv → MySQL)
+python pipeline.py
+```
+
+Populates the `historical_tickets` table. Re-running is safe — duplicates are skipped automatically.
+
 ---
 
 ## 🔌 API Endpoints
+
+### Tickets
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -186,7 +239,42 @@ App running at: **http://localhost:5173**
 | `GET` | `/api/tickets/{id}/comments` | Get all comments |
 | `DELETE` | `/api/tickets/{id}/comments/{cid}` | Delete a comment |
 
+### Analytics (Phase 2)
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/analytics/overview` | KPIs: total, resolution rate, avg hours, date range |
+| `GET` | `/api/analytics/category-summary` | Volume + resolution stats per issue category |
+| `GET` | `/api/analytics/priority-distribution` | Count + % share per priority level |
+| `GET` | `/api/analytics/department-summary` | Ticket load + resolution rate per department |
+| `GET` | `/api/analytics/resolution-trends` | Month-by-month resolution performance |
+| `GET` | `/api/analytics/monthly-volume` | Monthly ticket counts split by status |
+
 Full documentation: [docs/api-docs.md](docs/api-docs.md)
+
+---
+
+## 🔄 ETL Workflow (Phase 2)
+
+```
+datasets/tickets_historical.csv
+          │
+          ▼
+  etl/extract.py       → reads CSV, validates shape & missing values
+          │
+          ▼
+  etl/transform.py     → strips whitespace, normalizes enums,
+                          removes duplicates, parses dates,
+                          derives: created_month, created_quarter,
+                                   is_resolved, resolution_bucket
+          │
+          ▼
+  etl/load.py          → creates historical_tickets table (if needed),
+                          inserts new rows, skips existing duplicates
+          │
+          ▼
+  MySQL: historical_tickets   ←── queried by Analytics API
+```
 
 ---
 
@@ -199,17 +287,28 @@ Full documentation: [docs/api-docs.md](docs/api-docs.md)
 | Create Ticket | `screenshots/create-ticket.png` |
 | Ticket Detail | `screenshots/ticket-detail.png` |
 | Search | `screenshots/search.png` |
+| Analytics (Phase 2) | `screenshots/analytics.png` |
+
+To regenerate all screenshots automatically:
+
+```bash
+# From project root (requires puppeteer installed)
+npm install puppeteer --save-dev
+node scripts/take-screenshots.js
+```
+
+> Requires both frontend (port 5173) and backend (port 8000) to be running, and the ETL pipeline to have been executed.
 
 ---
 
-## 🔮 Future Enhancements (Phase 2+)
+## 🔮 Future Enhancements
 
 - 🔐 Authentication & role-based access (Admin vs Employee)
 - 📧 Email notifications on ticket updates
-- 📊 Analytics dashboard with charts
 - 🤖 AI-powered semantic search (RAG)
 - ☁️ Cloud deployment (AWS / Azure)
 - 📱 Mobile-responsive PWA
+- 📊 Interactive chart library (Recharts/Chart.js) integration
 
 ---
 

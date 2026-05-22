@@ -252,3 +252,188 @@ Suggested collection order for testing:
 8. `POST /api/tickets/1/comments` — add a comment
 9. `DELETE /api/tickets/1/comments/1` — delete the comment
 10. `DELETE /api/tickets/1` — delete the ticket
+
+---
+
+---
+
+# Analytics API (Phase 2)
+
+> All analytics endpoints query the `historical_tickets` table populated by the ETL pipeline.  
+> Run `python etl/pipeline.py` before using these endpoints.
+
+---
+
+## `GET /api/analytics/overview`
+
+High-level KPIs across all historical tickets.
+
+**Response 200:**
+```json
+{
+  "total_historical": 256,
+  "total_resolved": 189,
+  "total_unresolved": 67,
+  "resolution_rate_pct": 73.8,
+  "avg_resolution_hours": 41.2,
+  "fastest_resolution_hrs": 1.5,
+  "slowest_resolution_hrs": 167.4,
+  "unique_departments": 8,
+  "unique_categories": 10,
+  "date_range_start": "2025-05-01",
+  "date_range_end": "2026-04-28"
+}
+```
+
+---
+
+## `GET /api/analytics/category-summary`
+
+Ticket volume and resolution stats grouped by issue category. Sorted by ticket count descending.
+
+**Response 200:**
+```json
+[
+  {
+    "issue_category": "VPN Issue",
+    "ticket_count": 34,
+    "resolved_count": 28,
+    "resolution_rate_pct": 82.4,
+    "avg_resolution_hours": 36.5
+  },
+  {
+    "issue_category": "Hardware Failure",
+    "ticket_count": 29,
+    "resolved_count": 19,
+    "resolution_rate_pct": 65.5,
+    "avg_resolution_hours": 58.2
+  }
+]
+```
+
+---
+
+## `GET /api/analytics/priority-distribution`
+
+Breakdown of all tickets by priority level (Critical → Low) with percentage share.
+
+**Response 200:**
+```json
+[
+  {
+    "priority": "Critical",
+    "ticket_count": 28,
+    "percentage": 10.9,
+    "avg_resolution_hours": 18.3
+  },
+  {
+    "priority": "High",
+    "ticket_count": 67,
+    "percentage": 26.2,
+    "avg_resolution_hours": 32.7
+  },
+  {
+    "priority": "Medium",
+    "ticket_count": 98,
+    "percentage": 38.3,
+    "avg_resolution_hours": 44.1
+  },
+  {
+    "priority": "Low",
+    "ticket_count": 63,
+    "percentage": 24.6,
+    "avg_resolution_hours": 55.9
+  }
+]
+```
+
+---
+
+## `GET /api/analytics/department-summary`
+
+Ticket load, resolved count, resolution rate, and avg resolution time per department. Sorted by ticket count descending.
+
+**Response 200:**
+```json
+[
+  {
+    "department": "Engineering",
+    "ticket_count": 48,
+    "resolved_count": 38,
+    "resolution_rate_pct": 79.2,
+    "avg_resolution_hours": 33.4
+  },
+  {
+    "department": "HR",
+    "ticket_count": 31,
+    "resolved_count": 20,
+    "resolution_rate_pct": 64.5,
+    "avg_resolution_hours": 52.1
+  }
+]
+```
+
+---
+
+## `GET /api/analytics/resolution-trends`
+
+Month-by-month ticket volume, resolved count, and average resolution time. Ordered by month ascending.
+
+**Response 200:**
+```json
+[
+  {
+    "created_month": "2025-05",
+    "ticket_count": 18,
+    "resolved_count": 14,
+    "avg_resolution_hours": 39.2
+  },
+  {
+    "created_month": "2025-06",
+    "ticket_count": 22,
+    "resolved_count": 17,
+    "avg_resolution_hours": 43.8
+  }
+]
+```
+
+---
+
+## `GET /api/analytics/monthly-volume`
+
+Monthly ticket counts broken down by status. Useful for stacked bar charts. Ordered by month ascending.
+
+**Response 200:**
+```json
+[
+  {
+    "created_month": "2025-05",
+    "ticket_count": 18,
+    "open_count": 2,
+    "resolved_count": 12,
+    "closed_count": 2,
+    "in_progress_count": 2
+  },
+  {
+    "created_month": "2025-06",
+    "ticket_count": 22,
+    "open_count": 4,
+    "resolved_count": 13,
+    "closed_count": 3,
+    "in_progress_count": 2
+  }
+]
+```
+
+---
+
+## Postman Quick-Start (Phase 2 — Analytics)
+
+Run these in order after the ETL pipeline has been executed:
+
+1. `GET /api/analytics/overview` — verify data loaded
+2. `GET /api/analytics/category-summary` — check category breakdown
+3. `GET /api/analytics/priority-distribution` — check priority %
+4. `GET /api/analytics/department-summary` — check per-dept stats
+5. `GET /api/analytics/resolution-trends` — check monthly trend data
+6. `GET /api/analytics/monthly-volume` — check stacked volume data
