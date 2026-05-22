@@ -6,7 +6,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from database import engine, Base
-from routers import tickets
+from routers import tickets, analytics
 
 # ── Create all tables on startup (if they don't exist) ───────────────────────
 Base.metadata.create_all(bind=engine)
@@ -15,7 +15,7 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI(
     title       = "Helpdesk Ticket Management System",
     description = "REST API for managing internal IT support tickets.",
-    version     = "1.0.0",
+    version     = "2.0.0",
     docs_url    = "/docs",
     redoc_url   = "/redoc",
 )
@@ -32,6 +32,7 @@ app.add_middleware(
 
 # ── Routers ───────────────────────────────────────────────────────────────────
 app.include_router(tickets.router)
+app.include_router(analytics.router)
 
 
 # ── Health check ──────────────────────────────────────────────────────────────

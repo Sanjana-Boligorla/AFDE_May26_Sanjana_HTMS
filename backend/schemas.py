@@ -99,3 +99,58 @@ class DashboardStats(BaseModel):
     by_status      : Dict[str, int]
     by_priority    : Dict[str, int]
     recent_tickets : List[TicketResponse]
+
+
+# ── Analytics Schemas (Phase 2) ───────────────────────────────────────────────
+
+class AnalyticsOverview(BaseModel):
+    total_historical        : int
+    total_resolved          : int
+    total_unresolved        : int
+    resolution_rate_pct     : float
+    avg_resolution_hours    : Optional[float]
+    fastest_resolution_hrs  : Optional[float]
+    slowest_resolution_hrs  : Optional[float]
+    unique_departments      : int
+    unique_categories       : int
+    date_range_start        : str
+    date_range_end          : str
+
+
+class CategorySummaryItem(BaseModel):
+    issue_category          : str
+    ticket_count            : int
+    resolved_count          : int
+    resolution_rate_pct     : float
+    avg_resolution_hours    : Optional[float]
+
+
+class PriorityDistItem(BaseModel):
+    priority                : str
+    ticket_count            : int
+    percentage              : float
+    avg_resolution_hours    : Optional[float]
+
+
+class DeptSummaryItem(BaseModel):
+    department              : str
+    ticket_count            : int
+    resolved_count          : int
+    resolution_rate_pct     : float
+    avg_resolution_hours    : Optional[float]
+
+
+class ResolutionTrendItem(BaseModel):
+    created_month           : str
+    ticket_count            : int
+    resolved_count          : int
+    avg_resolution_hours    : Optional[float]
+
+
+class MonthlyVolumeItem(BaseModel):
+    created_month           : str
+    ticket_count            : int
+    open_count              : int
+    resolved_count          : int
+    closed_count            : int
+    in_progress_count       : int

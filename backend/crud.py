@@ -4,7 +4,7 @@ crud.py — All database operations for tickets and ticket_comments
 
 from sqlalchemy.orm import Session
 from sqlalchemy import or_, func
-from typing import Optional
+from typing import Optional, List
 
 import models
 import schemas
@@ -193,3 +193,187 @@ def get_dashboard_stats(db: Session) -> dict:
         "by_priority"    : {p: c for p, c in priority_counts},
         "recent_tickets" : recent_tickets,
     }
+
+
+# ════════════════════════════════════════════════════════════════════════════
+# ANALYTICS CRUD (Phase 2 — queries historical_tickets)
+# ════════════════════════════════════════════════════════════════════════════
+
+def get_analytics_overview(db: Session) -> dict:
+    """High-level summary stats from historical_tickets."""
+    total = db.query(func.count(models.HistoricalTicket.id)).scalar() or 0
+
+    resolved = (
+        db.query(func.count(models.HistoricalTicket.id))
+        .filter(models.HistoricalTicket.is_resolved == True)
+        .scalar() or 0
+    )
+
+    avg_hrs = (
+        db.query(func.avg(models.HistoricalTicket.resolution_time_hours))
+        .filter(models.HistoricalTicket.resolution_time_hours.isnot(None))
+        .scalar()
+    )
+    min_hrs = (
+        db.query(func.min(models.HistoricalTicket.resolution_time_hours))
+        .filter(models.HistoricalTicket.resolution_time_hours.isnot(None))
+        .scalar()
+    )
+    max_hrs = (
+        db.query(func.max(models.HistoricalTicket.resolution_time_hours))
+        .filter(models.HistoricalTicket.resolution_time_hours.isnot(None))
+        .scalar()
+    )
+
+    unique_depts = (
+        db.query(func.count(func.distinct(models.HistoricalTicket.department))).scalar() or 0
+    )
+    unique_cats = (
+        db.query(func.count(func.distinct(models.HistoricalTicket.issue_category))).scalar() or 0
+    )
+
+    date_start = db.query(func.min(models.HistoricalTicket.created_date)).scalar()
+    date_end   = db.query(func.max(models.HistoricalTicket.created_date)).scalar()
+
+    return {
+        "total_historical"       : total,
+        "total_resolved"         : resolved,
+        "total_unresolved"       : total - resolved,
+        "resolution_rate_pct"    : round(resolved / total * 100, 1) if total else 0.0,
+        "avg_resolution_hours"   : round(float(avg_hrs), 1) if avg_hrs else None,
+        "fastest_resolution_hrs" : round(float(min_hrs), 1) if min_hrs else None,
+        "slowest_resolution_hrs" : round(float(max_hrs), 1) if max_hrs else None,
+        "unique_departments"     : unique_depts,
+        "unique_categories"      : unique_cats,
+        "date_range_start"       : str(date_start) if date_start else "",
+        "date_range_end"         : str(date_end)   if date_end   else "",
+    }
+
+
+def get_category_summary(db: Session) -> List[dict]:
+    rows = (
+        db.query(
+            models.HistoricalTicket.issue_category,
+            func.count(models.HistoricalTicket.id).label("ticket_count"),
+            func.sum(
+                func.IF(models.HistoricalTicket.is_resolved == True, 1, 0)
+            ).label("resolved_count"),
+            func.avg(models.HistoricalTicket.resolution_time_hours).label("avg_hrs"),
+        )
+        .group_by(models.HistoricalTicket.issue_category)
+        .order_by(func.count(models.HistoricalTicket.id).desc())
+        .all()
+    )
+    result = []
+    for cat, cnt, res, avg_hrs in rows:
+        result.append({
+            "issue_category"       : cat,
+            "ticket_count"         : cnt,
+            "resolved_count"       : int(res or 0),
+            "resolution_rate_pct"  : round(int(res or 0) / cnt * 100, 1) if cnt else 0.0,
+            "avg_resolution_hours" : round(float(avg_hrs), 1) if avg_hrs else None,
+        })
+    return result
+
+
+def get_priority_distribution(db: Session) -> List[dict]:
+    total = db.query(func.count(models.HistoricalTicket.id)).scalar() or 1
+    rows  = (
+        db.query(
+            models.HistoricalTicket.priority,
+            func.count(models.HistoricalTicket.id).label("ticket_count"),
+            func.avg(models.HistoricalTicket.resolution_time_hours).label("avg_hrs"),
+        )
+        .group_by(models.HistoricalTicket.priority)
+        .order_by(func.count(models.HistoricalTicket.id).desc())
+        .all()
+    )
+    order = {"Critical": 0, "High": 1, "Medium": 2, "Low": 3}
+    result = []
+    for pri, cnt, avg_hrs in rows:
+        result.append({
+            "priority"             : pri,
+            "ticket_count"         : cnt,
+            "percentage"           : round(cnt / total * 100, 1),
+            "avg_resolution_hours" : round(float(avg_hrs), 1) if avg_hrs else None,
+        })
+    result.sort(key=lambda x: order.get(x["priority"], 99))
+    return result
+
+
+def get_department_summary(db: Session) -> List[dict]:
+    rows = (
+        db.query(
+            models.HistoricalTicket.department,
+            func.count(models.HistoricalTicket.id).label("ticket_count"),
+            func.sum(
+                func.IF(models.HistoricalTicket.is_resolved == True, 1, 0)
+            ).label("resolved_count"),
+            func.avg(models.HistoricalTicket.resolution_time_hours).label("avg_hrs"),
+        )
+        .group_by(models.HistoricalTicket.department)
+        .order_by(func.count(models.HistoricalTicket.id).desc())
+        .all()
+    )
+    result = []
+    for dept, cnt, res, avg_hrs in rows:
+        result.append({
+            "department"           : dept,
+            "ticket_count"         : cnt,
+            "resolved_count"       : int(res or 0),
+            "resolution_rate_pct"  : round(int(res or 0) / cnt * 100, 1) if cnt else 0.0,
+            "avg_resolution_hours" : round(float(avg_hrs), 1) if avg_hrs else None,
+        })
+    return result
+
+
+def get_resolution_trends(db: Session) -> List[dict]:
+    rows = (
+        db.query(
+            models.HistoricalTicket.created_month,
+            func.count(models.HistoricalTicket.id).label("ticket_count"),
+            func.sum(
+                func.IF(models.HistoricalTicket.is_resolved == True, 1, 0)
+            ).label("resolved_count"),
+            func.avg(models.HistoricalTicket.resolution_time_hours).label("avg_hrs"),
+        )
+        .group_by(models.HistoricalTicket.created_month)
+        .order_by(models.HistoricalTicket.created_month.asc())
+        .all()
+    )
+    return [
+        {
+            "created_month"        : month,
+            "ticket_count"         : cnt,
+            "resolved_count"       : int(res or 0),
+            "avg_resolution_hours" : round(float(avg_hrs), 1) if avg_hrs else None,
+        }
+        for month, cnt, res, avg_hrs in rows
+    ]
+
+
+def get_monthly_volume(db: Session) -> List[dict]:
+    rows = (
+        db.query(
+            models.HistoricalTicket.created_month,
+            func.count(models.HistoricalTicket.id).label("ticket_count"),
+            func.sum(func.IF(models.HistoricalTicket.status == "Open",        1, 0)).label("open_count"),
+            func.sum(func.IF(models.HistoricalTicket.status == "Resolved",    1, 0)).label("resolved_count"),
+            func.sum(func.IF(models.HistoricalTicket.status == "Closed",      1, 0)).label("closed_count"),
+            func.sum(func.IF(models.HistoricalTicket.status == "In Progress", 1, 0)).label("in_progress_count"),
+        )
+        .group_by(models.HistoricalTicket.created_month)
+        .order_by(models.HistoricalTicket.created_month.asc())
+        .all()
+    )
+    return [
+        {
+            "created_month"    : month,
+            "ticket_count"     : cnt,
+            "open_count"       : int(op  or 0),
+            "resolved_count"   : int(res or 0),
+            "closed_count"     : int(cl  or 0),
+            "in_progress_count": int(ip  or 0),
+        }
+        for month, cnt, op, res, cl, ip in rows
+    ]
